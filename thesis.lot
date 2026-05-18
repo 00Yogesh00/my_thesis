@@ -1,0 +1,16 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {3.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Summary of Datasets Used in This Study}}{14}{table.caption.4}%
+\contentsline {table}{\numberline {3.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Datasets Considered but Not Selected}}{19}{table.caption.8}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Training Data Composition Comparison}}{26}{table.caption.13}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {5.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Final NER --- Summary of Performance Across All Three Desiderata}}{34}{table.caption.17}%
+\contentsline {table}{\numberline {5.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Per-Type NER Performance on Mahānāma \cite {sarkar2025mahanama} Test Set (Final NER)}}{36}{table.caption.19}%
+\contentsline {table}{\numberline {5.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Linguistic Capability Preservation (D2) Results}}{37}{table.caption.21}%
+\contentsline {table}{\numberline {5.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Contribution of Each Training Strategy}}{39}{table.caption.23}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {6.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Trade-off Between Best NER and Final NER}}{44}{table.caption.28}%
+\addvspace {10\p@ }
+\contentsline {table}{\numberline {7.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Summary of Key Results: Best NER vs Final NER}}{52}{table.caption.30}%

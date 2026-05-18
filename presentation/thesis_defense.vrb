@@ -1,0 +1,21 @@
+\frametitle{Python Algorithm: DCS Sembank Extraction}
+\tp{25}
+\begin{block}{Attempt 3: Deterministic Filtering}
+\begin{verbatim}
+def extract_silver_ner(sembank_row):
+    # col0 = descriptor (e.g. king)
+    # col1 = entity name (e.g. Rama)
+    if sembank_row['col0_id'] != sembank_row['col1_id']:
+        entity_text = sembank_row['col1_text']
+        label = "PROPN"
+        return (entity_text, label)
+    return None
+
+# Result: 12,955 high-precision examples
+\end{verbatim}
+\end{block}
+    \vfill
+    \begin{itemize}
+        \item Prevents contamination from common nouns (\textit{rājan, go, vana}).
+        \item Preserves inflectional diversity seen in classical manuscripts.
+    \end{itemize}

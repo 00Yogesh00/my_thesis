@@ -1,0 +1,96 @@
+% ============================================================
+% EXPANDED LITERATURE REVIEW — 12 Key Papers + Review
+% For defense_presentation.tex (Beamer)
+% ============================================================
+
+% ============================================================
+% SLIDE 6 (REPLACEMENT) — Literature Review: 12 Key Works
+% ============================================================
+\begin{frame}{Literature Review: 12 Foundational Works}
+  \centering
+  \footnotesize
+  \begin{tabular}{p{0.8cm}p{3.8cm}p{5.8cm}}
+    \toprule
+    \textbf{Year} & \textbf{Authors} & \textbf{Key Contribution \& Relevance} \\
+    \midrule
+    1989 & McCloskey \& Cohen & Catastrophic forgetting in neural networks — core motivation for our 15\% linguistic regularisation \\
+    1997 & Caruana & Multi-task learning foundations — basis of our hybrid NER + linguistic training \\
+    2001 & Lafferty et al. & Conditional Random Fields (CRF) — first statistical NER standard \\
+    2015 & Huang et al. & BiLSTM-CRF — neural sequence labeling breakthrough \\
+    2018 & Hellwig \& Nehrdich & Character-level Sanskrit segmentation — early deep learning for Sanskrit \\
+    2019 & Devlin et al. & BERT — Transformer pretraining revolution \\
+    2022 & Xue et al. & ByT5 — byte-level tokenization (our base architecture choice) \\
+    2023 & Sarkar et al. & First CRF-based Sanskrit NER attempt — showed data scarcity problem \\
+    2023 & Dettmers et al. & QLoRA — enabled our single-GPU 594M model training \\
+    2024 & Nehrdich et al. & ByT5-Sanskrit — first large-scale Sanskrit language model (our base) \\
+    2025 & Sarkar et al. & Mahānāma — first large gold-standard Sanskrit NER corpus (our D1 benchmark) \\
+    2025 & Hellwig \& Biagetti & Sanskrit Sembank — source of our novel silver NER extraction \\
+    \bottomrule
+  \end{tabular}
+  \note{These 12 works form the foundation of our methodology. We combine ideas from statistical NER, modern efficient fine-tuning (QLoRA), and Sanskrit-specific resources (Mahānāma + Sembank).}
+\end{frame}
+
+% ============================================================
+% SLIDE 7 — Research Gap (Updated)
+% ============================================================
+\begin{frame}{Research Gap: What Was Missing}
+  \begin{columns}[T]
+    \begin{column}{0.52\textwidth}
+      \textbf{What existed before this thesis:}
+      \begin{itemize}
+        \item Strong general NER methods (CRF, BERT, ByT5)
+        \item Good Sanskrit resources (DCS, Mahānāma 2025)
+        \item Efficient fine-tuning (LoRA/QLoRA)
+      \end{itemize}
+      \vspace{0.3cm}
+      \textbf{What was missing:}
+      \begin{itemize}
+        \item No model that satisfies \textbf{all three desiderata} at once
+        \item No correct way to extract NER labels from Sembank
+        \item No evaluation that checks linguistic preservation + cross-domain
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.44\textwidth}
+      \centering
+      \begin{tikzpicture}[
+        box/.style={draw=navy, fill=navy!8, thick, rounded corners, minimum width=3.2cm, minimum height=1.1cm, align=center, font=\footnotesize},
+        gap/.style={draw=alertred, fill=alertred!15, thick, rounded corners, minimum width=3.2cm, minimum height=1.1cm, align=center, font=\footnotesize\bfseries}
+      ]
+        \node[box] (d1) at (0,2.2) {High NER Accuracy};
+        \node[box] (d2) at (0,0.9) {Linguistic Capability};
+        \node[box] (d3) at (0,-0.4) {Cross-Domain};
+        \node[gap] at (0,-1.7) {All Three Together};
+        \draw[->, thick, gold] (d1) -- (d2) -- (d3);
+      \end{tikzpicture}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.2cm}
+  \begin{alertblock}{Our Contribution}
+    We are the \textbf{first} to combine all three using 15\% linguistic regularisation + corrected Sembank silver data + three-dimensional evaluation.
+  \end{alertblock}
+  \note{This is the precise gap our thesis fills. Previous work always sacrificed at least one of the three requirements.}
+\end{frame}
+
+% ============================================================
+% OPTIONAL: SHORT REVIEW PARAGRAPH (can be used as speaker note or extra slide)
+% ============================================================
+\begin{frame}{Literature Review: Synthesis}
+  \textbf{Synthesis of 12 Works:}
+
+  The field evolved from statistical models (CRF, 2001) to neural sequence taggers (BiLSTM-CRF, 2015) to large pretrained Transformers (BERT 2019, ByT5 2022). Sanskrit-specific work remained limited until 2023–2025, when Mahānāma and ByT5-Sanskrit finally provided the necessary scale.
+
+  Our work sits at the intersection of three lines:
+  \begin{enumerate}
+    \item \textbf{Efficient adaptation} (QLoRA 2023)
+    \item \textbf{Sanskrit resources} (Mahānāma + Sembank 2025)
+    \item \textbf{Multi-task regularisation} (Caruana 1997 + catastrophic forgetting literature)
+  \end{enumerate}
+
+  This combination had not been attempted before for Sanskrit NER.
+  \note{This short review can be used if the examiner asks for a broader perspective on how our work relates to the literature.}
+\end{frame}
+
+% ============================================================
+% END
+% ============================================================

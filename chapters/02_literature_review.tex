@@ -1,0 +1,166 @@
+% ============================================================
+% CHAPTER 2: LITERATURE REVIEW
+% Publication-Grade LaTeX — ByT5-Sanskrit NER Thesis
+% Heavily Cited + Critical Analysis
+% ============================================================
+
+\chapter{Literature Review}
+\label{chap:literature}
+
+% ============================================================
+% 2.1 Introduction
+% ============================================================
+\section{Introduction}
+\label{sec:intro_lit}
+
+The development of computational tools for Sanskrit has gained significant momentum in the last two decades, driven by the dual goals of preserving India's intellectual heritage and enabling new forms of scholarly inquiry \cite{hellwig2010dcs, nehrdich2024byt5sanskrit}. Among the most fundamental tasks in natural language processing (NLP) for any language is Named Entity Recognition (NER), which identifies and classifies proper names and other entity mentions in text. For Sanskrit, however, NER remains a particularly challenging and underexplored problem due to the language's rich morphology, flexible word order, and the scarcity of annotated resources \cite{sarkar2025mahanama}.
+
+This literature review surveys the key developments in Sanskrit computational linguistics, general NER methodologies, and the specific challenges of applying modern NLP techniques to classical Sanskrit. It critically examines previous attempts at Sanskrit NER, evaluates the strengths and limitations of byte-level and multi-task learning approaches, and identifies the research gap that this thesis seeks to address. The review is organised to progressively narrow the focus from broad linguistic challenges to the specific methodological choices made in this work.
+
+The central argument of this review is that while significant progress has been made in Sanskrit NLP, existing approaches have largely failed to simultaneously satisfy three critical requirements for scholarly utility: high performance on gold-standard benchmarks, preservation of core linguistic capabilities, and meaningful generalisation to unseen classical texts. This thesis positions itself as a direct response to that gap.
+
+% ============================================================
+% 2.2 Sanskrit as a Computational Language
+% ============================================================
+\section{Sanskrit as a Computational Language: Challenges and Opportunities}
+\label{sec:sanskrit_computational}
+
+Sanskrit presents a unique set of challenges for computational processing that distinguish it from both modern Indo-European languages and other classical languages such as Latin or Greek. These challenges arise from its linguistic structure, historical transmission, and the nature of its textual tradition.
+
+\subsection{Linguistic Features Relevant to NER}
+\label{subsec:linguistic_features}
+
+Sanskrit is characterised by an exceptionally rich morphology, with nouns and adjectives inflecting for three genders, three numbers, and seven cases, while verbs conjugate across ten tenses/moods, three voices, and multiple persons \cite{kiparsky2009architecture}. This morphological complexity means that a single lemma can appear in dozens of surface forms, making entity recognition far more difficult than in analytic languages like English. Furthermore, the language's productive use of compounding (samāsa) and sandhi (euphonic combination) frequently obscures word boundaries, creating what Hellwig \cite{hellwig2010dcs} describes as ``a continuous stream of phonemes with minimal overt segmentation.''
+
+These features have direct implications for NER. A system that relies on surface-form matching or simple gazetteers will fail to recognise entities that appear in inflected or compounded forms not seen during training. For example, the proper name \textit{Rāma} may appear as \textit{Rāmaḥ}, \textit{Rāmam}, \textit{Rāmeṇa}, or embedded within compounds such as \textit{Rāmarājya}. Effective Sanskrit NER therefore requires models that can generalise across morphological variation rather than memorising surface strings \cite{hellwig2018segmentation}.
+
+\subsection{The Digital Corpus of Sanskrit and Resource Scarcity}
+\label{subsec:dcs_resource}
+
+The primary resource for computational Sanskrit is the Digital Corpus of Sanskrit (DCS), which contains over 650,000 sentences from more than 400 classical texts \cite{hellwig2010dcs}. While this represents a substantial body of material, it remains small by modern NLP standards. More critically, until recently, DCS lacked gold-standard annotations for named entities. The release of the Mahānāma dataset \cite{sarkar2025mahanama} marked a significant milestone, providing the first large-scale, manually annotated NER corpus for Sanskrit. However, even this resource is limited to the \textit{Mahābhārata} \cite{mahabharata} and exhibits the extreme class imbalance typical of historical texts (over 90\% Person entities).
+
+The scarcity of annotated data has forced researchers to rely heavily on silver-standard or distant supervision techniques, raising questions about annotation quality and domain bias that this thesis directly addresses.
+
+% ============================================================
+% 2.3 Named Entity Recognition: General Approaches
+% ============================================================
+\section{Named Entity Recognition: From Rule-Based to Neural Methods}
+\label{sec:ner_general}
+
+Named Entity Recognition has evolved dramatically since its formalisation in the Message Understanding Conferences (MUC) of the 1990s \cite{grishman1996muc6}. Early systems relied on hand-crafted rules, gazetteers, and pattern matching, achieving high precision on narrow domains but poor recall and portability \cite{nadeau2007ner}.
+
+\subsection{Statistical and Feature-Based Approaches}
+\label{subsec:statistical_ner}
+
+The introduction of statistical models, particularly Conditional Random Fields (CRFs) and Maximum Entropy Markov Models, marked a significant advance by learning from annotated data rather than relying solely on rules \cite{lafferty2001crf}. These models dominated the CoNLL-2003 shared task and remained state-of-the-art for many years, particularly when combined with rich feature sets including orthographic patterns, gazetteers, and contextual information \cite{ratinov2009design}.
+
+However, feature-based approaches require substantial engineering effort and struggle with the morphological complexity of languages like Sanskrit, where surface-form features are less reliable predictors of entity status.
+
+\subsection{Neural and Transformer-Based NER}
+\label{subsec:neural_ner}
+
+The shift to neural methods, particularly bidirectional LSTM-CRF architectures \cite{huang2015bilstm} and later transformer-based models \cite{devlin2019bert}, dramatically improved performance on English and other high-resource languages. Pre-trained language models such as BERT and its variants learn contextual representations that capture both syntactic and semantic information, reducing the need for hand-crafted features.
+
+For low-resource and morphologically rich languages, however, standard subword tokenisation (WordPiece, BPE) often fragments words in ways that destroy morphological signals \cite{sennrich2016bpe}. This has motivated research into byte-level and character-level models, which this thesis builds upon.
+
+% ============================================================
+% 2.4 Previous Work in Sanskrit NER
+% ============================================================
+\section{Previous Work in Sanskrit Named Entity Recognition}
+\label{sec:sanskrit_ner}
+
+Despite the importance of NER for Sanskrit philology and digital humanities, relatively few studies have addressed the task directly. This section critically reviews the existing literature.
+
+\subsection{Early Rule-Based and Gazetteer Approaches}
+\label{subsec:early_sanskrit_ner}
+
+Initial attempts at Sanskrit NER relied on gazetteers derived from classical indices (e.g., Sørensen's 1904 index of Mahābhārata \cite{mahabharata} proper names \cite{sorensen1904index}) combined with morphological analysis \cite{jha2010ner}. While these systems achieved reasonable precision on well-known entities, they suffered from low recall on inflected forms and completely failed on entities not present in the gazetteer. More fundamentally, they could not handle the ambiguity between common nouns and proper names that is pervasive in Sanskrit (e.g., \textit{rāma} can be both a proper name and an adjective meaning ``pleasing'').
+
+\subsection{Machine Learning Approaches}
+\label{subsec:ml_sanskrit_ner}
+
+\citet{sarkar2023preannotation} presented one of the first machine learning approaches to Sanskrit NER, using a CRF-based system trained on a precursor to the Mahānāma dataset. While this work demonstrated the feasibility of statistical NER for Sanskrit, it was limited by the small size of the training data and did not address the class imbalance problem that later proved critical \cite{sarkar2025mahanama}.
+
+The release of the full Mahānāma dataset \cite{sarkar2025mahanama} enabled more ambitious experiments. However, early neural models trained on this data exhibited the same failure mode observed in this thesis's preliminary experiments: near-zero performance on Location and Miscellaneous entities due to extreme class imbalance. This finding underscores the necessity of the oversampling strategy developed in this work.
+
+\subsection{Limitations of Existing Sanskrit NER Systems}
+\label{subsec:limitations_existing}
+
+A critical examination of existing Sanskrit NER systems reveals several recurring limitations:
+
+\begin{enumerate}
+    \item \textbf{Narrow Domain Coverage:} Most systems are trained and evaluated exclusively on the \textit{Mahābhārata} \cite{mahabharata}, with little testing on other classical texts.
+    \item \textbf{Ignoring Linguistic Capability:} No prior work has explicitly sought to preserve the model's ability to perform fundamental tasks such as segmentation and lemmatisation alongside NER.
+    \item \textbf{Lack of Cross-Domain Evaluation:} There has been no systematic evaluation of generalisation to out-of-domain classical texts such as the \textit{Pañcatantra} \cite{pancatantra_text} or Vedic literature \cite{rigveda}.
+    \item \textbf{Over-reliance on Surface Features:} Existing systems have not fully exploited the morphological regularities of Sanskrit, leading to poor performance on inflected and compounded entities.
+\end{enumerate}
+
+These limitations directly motivate the methodological choices made in this thesis.
+
+% ============================================================
+% 2.5 Byte-Level and Character-Level Models
+% ============================================================
+\section{Byte-Level and Character-Level Models for Low-Resource Languages}
+\label{sec:byte_level}
+
+The limitations of subword tokenisation for morphologically rich languages have prompted renewed interest in byte-level and character-level models. ByT5 \cite{xue2022byt5}, which operates directly on UTF-8 bytes, eliminates the need for language-specific vocabularies and has shown strong performance on multilingual and low-resource tasks.
+
+\subsection{Advantages for Sanskrit}
+\label{subsec:byt5_sanskrit}
+
+ByT5's byte-level approach is particularly well-suited to Sanskrit for several reasons. First, it naturally handles the Devanagari script and its various Unicode representations without requiring custom tokenisers. Second, it can learn morphological patterns at the character level, which is essential for generalising across inflected forms. Third, the model's pretraining on the DCS (as in the \texttt{chronbmm/sanskrit5-multitask} checkpoint used in this thesis) provides a strong foundation of Sanskrit-specific knowledge.
+
+However, byte-level models are not without limitations. They are computationally more expensive than subword models and can struggle with long-range dependencies in very long sentences. This thesis addresses the latter issue through careful generation settings (\texttt{max\_new\_tokens=256}).
+
+\subsection{Related Work on Character-Level NER}
+\label{subsec:character_ner}
+
+Character-level and byte-level NER has been explored for other morphologically rich languages, including Arabic \cite{alsmadi2019arabic}, Turkish \cite{gungor2018turkish}, and Finnish \cite{kanerva2020finnish}. These studies consistently find that character-level models outperform subword models on entity types with high morphological variation, a finding that supports the choice of ByT5 for Sanskrit.
+
+% ============================================================
+% 2.6 Multi-Task Learning and Regularisation
+% ============================================================
+\section{Multi-Task Learning and Regularisation in NLP}
+\label{sec:multi_task}
+
+Multi-task learning (MTL) has emerged as a powerful paradigm for improving model generalisation and sharing knowledge across related tasks \cite{caruana1997multitask, ruder2017overview}. By training a single model on multiple objectives, MTL can act as a regulariser, preventing overfitting to any single task and encouraging the learning of more robust representations.
+
+\subsection{Applications in Low-Resource Settings}
+\label{subsec:mtl_low_resource}
+
+In low-resource scenarios, MTL has proven particularly valuable. For example, joint training on NER and part-of-speech tagging has been shown to improve performance on both tasks for languages with limited annotated data \cite{yang2017transfer}. More recently, multi-task fine-tuning of large language models has demonstrated the ability to preserve general capabilities while adapting to specific downstream tasks \cite{sanh2022t0}.
+
+\subsection{Relevance to This Thesis}
+\label{subsec:mtl_relevance}
+
+The multi-task approach adopted in this thesis — training on 85\% NER and 15\% linguistic tasks (Segmentation and Lemmatisation) — directly builds on these findings. The linguistic regularisation component serves two purposes: (1) it prevents catastrophic forgetting of the model's original capabilities, and (2) it encourages the model to learn representations that are useful for both entity recognition and grammatical analysis. This dual benefit is a key contribution of this work and addresses a gap in previous Sanskrit NLP research, which has typically treated NER in isolation from other linguistic tasks.
+
+% ============================================================
+% 2.7 Research Gap and Positioning
+% ============================================================
+\section{Research Gap and Positioning of This Work}
+\label{sec:research_gap}
+
+The preceding review reveals a clear research gap. While substantial progress has been made in Sanskrit NLP and in general NER methodologies, no prior work has simultaneously addressed the three desiderata that are essential for scholarly utility:
+
+\begin{enumerate}
+    \item High NER performance on gold-standard benchmarks, particularly for minority entity classes.
+    \item Preservation of core linguistic capabilities (segmentation and lemmatisation).
+    \item Meaningful generalisation to unseen classical texts.
+\end{enumerate}
+
+Existing systems either achieve high in-domain F1 at the cost of destroying linguistic capability (NER-only fine-tuning), or preserve linguistic functions but fail to generalise beyond their training domain. Furthermore, no prior work has systematically documented the methodological challenges of extracting silver NER data from the DCS Sembank, a resource that this thesis demonstrates is both valuable and non-trivial to use correctly.
+
+This thesis positions itself as a direct response to this gap. By combining class-balanced oversampling, linguistic regularisation, and a novel DCS Sembank extraction pipeline, the Final NER model achieves competitive in-domain performance (F1 = 0.852), strong preservation of linguistic capability (S = 85\%, L = 93\%), and a 16-percentage-point improvement in cross-domain PROPN recall. These results demonstrate that the three desiderata are not mutually exclusive and can be jointly optimised through careful methodological design.
+
+% ============================================================
+% 2.8 Summary
+% ============================================================
+\section{Summary}
+\label{sec:summary_lit}
+
+This literature review has surveyed the development of Sanskrit computational linguistics, the evolution of NER methodologies, and the specific challenges of applying modern NLP techniques to classical Sanskrit. It has identified critical limitations in existing Sanskrit NER systems — narrow domain coverage, neglect of linguistic capability, and lack of cross-domain evaluation — and has positioned this thesis as a direct response to these gaps. The following chapter describes the datasets used to address these challenges, while Chapter 4 presents the methodology developed to optimise the three desiderata simultaneously.
+
+% ============================================================
+% End of Chapter 2
+% ============================================================

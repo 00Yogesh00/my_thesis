@@ -1,0 +1,21 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces Dataset size comparison: Mah\={a}n\={a}ma (gold NER), DCS Sembank (silver NER + linguistic data).}}{14}{figure.caption.5}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Entity type distribution in the Mah\={a}n\={a}ma dataset (91.1\% PER — extreme class imbalance).}}{16}{figure.caption.6}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Training data composition: gold NER, silver NER, and linguistic regularisation data proportions.}}{19}{figure.caption.7}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces DCS Sembank NER Extraction Pipeline: three-attempt evolution yielding 12,955 clean examples.}}{25}{figure.caption.10}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Training strategy evolution from Best NER (F1\,=\,0.860) to Final NER (F1\,=\,0.852) with linguistic regularisation.}}{28}{figure.caption.14}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces QLoRA multi-task architecture for Final NER with 1.817\% adapter (10.76M trainable parameters).}}{29}{figure.caption.15}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Three-dimensional evaluation framework: D1 (in-domain), D2 (linguistic preservation), D3 (cross-domain).}}{31}{figure.caption.16}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces \xpg@aux {}{english}\ignorespaces In-domain Micro F1 comparison across all evaluated models on the Mah\={a}n\={a}ma gold test set.}}{35}{figure.caption.18}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces \xpg@aux {}{english}\ignorespaces Type confusion matrix for Final NER on the Mah\={a}n\={a}ma gold test set.}}{36}{figure.caption.20}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces \xpg@aux {}{english}\ignorespaces Cross-domain PROPN recall of Final NER on the Pa\~{n}catantra corpus.}}{38}{figure.caption.22}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces \xpg@aux {}{english}\ignorespaces Micro F1 performance of Final NER by text genre (Epic, Pur\={a}\d {n}ic, Vedic).}}{39}{figure.caption.24}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces \xpg@aux {}{english}\ignorespaces F1 scores for major Mah\={a}bh\={a}rata characters; Final NER achieves 100\% recall on R\={a}ma and S\={i}t\={a}.}}{40}{figure.caption.25}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces \xpg@aux {}{english}\ignorespaces Bootstrap confidence intervals (10,000 resamples) for Micro F1 scores of key models.}}{41}{figure.caption.26}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces \xpg@aux {}{english}\ignorespaces Distribution of Micro F1 scores across 10,000 bootstrap resamples for Final NER.}}{41}{figure.caption.27}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

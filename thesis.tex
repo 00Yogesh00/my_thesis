@@ -1,0 +1,113 @@
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{geometry}
+\geometry{left=1.5in, right=1in, top=1in, bottom=1in}
+
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.32}
+
+% ==================== 2. FONTS & LANGUAGE ====================
+\usepackage{fontspec}
+\usepackage{polyglossia}
+
+\setdefaultlanguage{english}
+\setotherlanguage{sanskrit}
+
+\newfontfamily\devanagarifont{NotoSerifDevanagari-Regular}[
+    Path = /usr/share/fonts/google-noto/,
+    Extension = .ttf,
+    Scale = 1.0,
+    Script = Devanagari,
+    BoldFont = NotoSerifDevanagari-Bold,
+]
+\newcommand{\dev}[1]{{\devanagarifont #1}}
+
+% ==================== 3. ESSENTIAL PACKAGES ====================
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[square,numbers,comma,sort&compress]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[titles]{tocloft}
+
+% ---------- LIST OF FIGURES / TABLES formatting ----------
+% Smaller font for entries
+\renewcommand{\cftfigfont}{\footnotesize}
+\renewcommand{\cftfigpagefont}{\footnotesize}
+\renewcommand{\cfttabfont}{\footnotesize}
+\renewcommand{\cfttabpagefont}{\footnotesize}
+% Extra vertical space between entries
+\setlength{\cftbeforefigskip}{6pt}
+\setlength{\cftbeforetabskip}{6pt}
+
+% ---------- HEADER & FOOTER (fancyhdr) ----------
+\pagestyle{fancy}
+\setlength{\headheight}{14.5pt}
+\lhead{\leftmark}
+\rhead{\thepage}
+\cfoot{}
+\renewcommand{\headrulewidth}{0.4pt} % Adds the horizontal line at the top
+
+% ==================== DOCUMENT START ====================
+\begin{document}
+
+% ---------- FRONT MATTER ----------
+\pagenumbering{roman}
+\input{frontmatter/TitlePage/titlepg}
+\input{frontmatter/Certificate/cert}
+\include{frontmatter/Declaration/declaration}
+\include{frontmatter/Acknowledgment/ack}
+\input{frontmatter/ApprovalSheet/approval}
+\input{frontmatter/CourseWork/coursework}
+
+\newpage
+\addcontentsline{toc}{chapter}{Abstract}
+\begin{center}
+	{\bf A B S T R A C T}
+\end{center}
+
+\vspace{0.8cm}
+
+Named Entity Recognition (NER) for Sanskrit remains a significant challenge due to the scarcity of gold-standard annotated data, the language's rich morphology, and substantial domain diversity across classical texts. This thesis presents a hybrid approach that addresses these limitations through a novel combination of gold-standard data, automatically extracted silver data, and linguistic regularisation.
+
+We introduce a new methodology for extracting high-quality silver NER training data from the Digital Corpus of Sanskrit (DCS) Sembank, yielding 12,955 examples from 120 diverse texts. By incorporating 15\% linguistic regularisation data (segmentation and lemmatisation tasks) during fine-tuning of the ByT5-Sanskrit model (594M parameters), we develop the Final NER model that achieves a compelling balance between competing objectives.
+
+The model attains a micro-F1 of 0.852 on the in-domain Mahānāma test set while improving cross-domain PROPN recall by 16 percentage points (57.4\% → 73.4\%) on the Pañcatantra. Crucially, it preserves strong linguistic capability, achieving 85.0\% accuracy on segmentation and 93.0\% on lemmatisation. Systematic evaluation of 15 models demonstrates that our hybrid strategy outperforms both pure NER training and large-scale multi-task learning approaches.
+
+This work contributes the first comprehensive NER baselines for Sanskrit, a reusable silver data extraction pipeline, and a generalisable methodology for low-resource, morphologically rich languages. The results advance the goal of developing practical NLP tools that support Sanskrit scholars and students in large-scale textual analysis.
+
+\tableofcontents
+
+\begin{spacing}{1.2}
+    \listoffigures
+\end{spacing}
+
+\begin{spacing}{1.2}
+    \listoftables
+\end{spacing}
+% ---------- MAIN MATTER ----------
+\clearpage
+\pagenumbering{arabic}
+\input{chapters/01_introduction}
+\input{chapters/02_literature_review}
+\input{chapters/03_dataset_description}
+\input{chapters/04_methodology}
+\input{chapters/05_experiments_results}
+\input{chapters/06_discussion_analysis}
+\input{chapters/07_conclusion_futurework}
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\input{backmatter/plagiarism_declaration}
+
+\end{document}

@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99e (TeX Live 2026)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: thesis.aux
+A level-1 auxiliary file: frontmatter/Declaration/declaration.aux
+A level-1 auxiliary file: frontmatter/Acknowledgment/ack.aux
+The style file: unsrtnat.bst
+Database file #1: references.bib
+Warning--empty booktitle in efron1994bootstrap
+You've used 55 entries,
+            2481 wiz_defined-function locations,
+            849 strings with 14843 characters,
+and the built_in function-call counts, 21675 in all, are:
+= -- 1734
+> -- 1188
+< -- 49
++ -- 463
+- -- 352
+* -- 1446
+:= -- 3385
+add.period$ -- 182
+call.type$ -- 55
+change.case$ -- 99
+chr.to.int$ -- 54
+cite$ -- 56
+duplicate$ -- 1202
+empty$ -- 2075
+format.name$ -- 432
+if$ -- 4747
+int.to.chr$ -- 2
+int.to.str$ -- 56
+missing$ -- 53
+newline$ -- 290
+num.names$ -- 170
+pop$ -- 603
+preamble$ -- 1
+purify$ -- 55
+quote$ -- 0
+skip$ -- 746
+stack$ -- 0
+substring$ -- 680
+swap$ -- 253
+text.length$ -- 14
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 352
+warning$ -- 1
+while$ -- 160
+width$ -- 0
+write$ -- 720
+(There was 1 warning)

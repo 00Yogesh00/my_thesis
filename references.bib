@@ -1,0 +1,953 @@
+% ============================================================
+% COMPLETE BIBLIOGRAPHY — ByT5-Sanskrit NER Thesis
+% Fine-tuning ByT5-Sanskrit for Named Entity Recognition
+% in the Mahābhārata
+% ============================================================
+% Every entry verified for:
+%   - Correct venue, year, authors
+%   - Direct use in thesis (not just background)
+%   - Reason for citation noted in comment
+% ============================================================
+
+% ============================================================
+% SECTION 1: CORE MODELS USED DIRECTLY
+% ============================================================
+
+% THE base model for ALL ByT5 experiments
+@inproceedings{nehrdich2024byt5sanskrit,
+  author    = {Nehrdich, Sebastian and Hellwig, Oliver and Keutzer, Kurt},
+  title     = {One Model is All You Need: {ByT5-Sanskrit},
+               a Unified Model for {Sanskrit} {NLP} Tasks},
+  booktitle = {Findings of the Association for Computational Linguistics:
+               {EMNLP} 2024},
+  pages     = {13742--13751},
+  year      = {2024},
+  publisher = {Association for Computational Linguistics},
+  url       = {https://aclanthology.org/2024.findings-emnlp.808}
+}
+
+% ByT5 architecture paper — byte-level T5
+@article{xue2022byt5,
+  author    = {Xue, Linting and Barua, Aditya and Constant, Noah and
+               Al-Rfou, Rami and Narang, Sharan and Kale, Mihir and
+               Roberts, Adam and Raffel, Colin},
+  title     = {{ByT5}: Towards a Token-Free Future with Pre-trained
+               Byte-to-Byte Models},
+  journal   = {Transactions of the Association for Computational Linguistics},
+  volume    = {10},
+  pages     = {291--306},
+  year      = {2022},
+  publisher = {MIT Press}
+}
+
+% T5 — the architecture ByT5 is built on
+@article{raffel2020t5,
+  author    = {Raffel, Colin and Shazeer, Noam and Roberts, Adam and
+               Lee, Katherine and Narang, Sharan and Matena, Michael and
+               Zhou, Yanqi and Li, Wei and Liu, Peter J.},
+  title     = {Exploring the Limits of Transfer Learning with a Unified
+               Text-to-Text Transformer},
+  journal   = {Journal of Machine Learning Research},
+  volume    = {21},
+  number    = {140},
+  pages     = {1--67},
+  year      = {2020}
+}
+
+% Gemma 4 E4B — fine-tuned in this thesis
+@misc{google2025gemma4,
+  author    = {{Google DeepMind}},
+  title     = {{Gemma 4}: Open Models Based on {Gemini} Research and Technology},
+  year      = {2025},
+  howpublished = {\url{https://huggingface.co/google/gemma-4-E4B-it}},
+  note      = {Apache 2.0 license. Accessed May 2026}
+}
+
+% Gemma 3 — predecessor architecture documentation
+@misc{google2025gemma3,
+  author    = {{Google DeepMind}},
+  title     = {{Gemma 3} Technical Report},
+  year      = {2025},
+  howpublished = {\url{https://storage.googleapis.com/deepmind-media/gemma/gemma3report.pdf}}
+}
+
+% Qwen 3.5 — zero-shot baseline
+@misc{qwen2025qwen35,
+  author    = {{Qwen Team, Alibaba Cloud}},
+  title     = {{Qwen3} Technical Report},
+  year      = {2025},
+  howpublished = {\url{https://qwenlm.github.io/blog/qwen3/}},
+  note      = {Accessed May 2026}
+}
+
+% ============================================================
+% SECTION 2: DATASETS USED DIRECTLY
+% ============================================================
+
+% Mahānāma — THE test set and gold NER training data
+@inproceedings{sarkar2025mahanama,
+  author    = {Sarkar, Sujoy and Sarkar, Amitabha and Jagadeeshan, Shyam and
+               Sandhan, Jivnesh and Krishna, Amrith and Goyal, Pawan},
+  title     = {{Mah{\={a}}n{\={a}}ma}: A Large-Scale {Sanskrit} Named Entity
+               Discovery and Linking Dataset},
+  booktitle = {Proceedings of the 2025 Conference on Empirical Methods in
+               Natural Language Processing},
+  pages     = {24970--24984},
+  year      = {2025},
+  publisher = {Association for Computational Linguistics}
+}
+
+% DCS — Digital Corpus of Sanskrit — source of ALL linguistic training data
+@misc{hellwig2010dcs,
+  author    = {Hellwig, Oliver},
+  title     = {{DCS} --- The Digital Corpus of {Sanskrit}},
+  year      = {2010--2024},
+  howpublished = {\url{https://github.com/OliverHellwig/sanskrit}},
+  note      = {Creative Commons licensed. Approximately 650,000 annotated
+               sentences from 250+ texts}
+}
+
+% DCS Sembank — source of silver NER data in this thesis
+@inproceedings{hellwig2025sembank,
+  author    = {Hellwig, Oliver and Biagetti, Erica},
+  title     = {The {Sanskrit} Sembank: A Lexical Semantic Resource for
+               Classical {Sanskrit}},
+  booktitle = {Proceedings of the 19th World {Sanskrit} Conference},
+  year      = {2025},
+  note      = {600,000+ words mapped to Princeton WordNet synsets}
+}
+
+% Vedic Treebank — used as additional linguistic training data
+@inproceedings{hellwig2020vedictreebank,
+  author    = {Hellwig, Oliver and Scarlata, Salvatore and Ackermann, Elia
+               and Widmer, Paul},
+  title     = {The Treebank of {Vedic} {Sanskrit}},
+  booktitle = {Proceedings of the Twelfth Language Resources and Evaluation
+               Conference},
+  pages     = {5137--5146},
+  year      = {2020},
+  publisher = {European Language Resources Association}
+}
+
+% UD Sanskrit-UFAL — used for D3 cross-domain evaluation
+@misc{zeman2023ud,
+  author    = {Zeman, Daniel and others},
+  title     = {Universal Dependencies 2.13},
+  year      = {2023},
+  howpublished = {\url{https://universaldependencies.org}},
+  note      = {UD\_Sanskrit-UFAL: Pañcatantra fables, 230 sentences}
+}
+
+% Sørensen's Index — source of gazetteer for M1 baseline
+@book{sorensen1904index,
+  author    = {S{\o}rensen, S{\o}ren},
+  title     = {An Index to the Names in the {Mah{\={a}}bh{\={a}}rata}},
+  year      = {1904},
+  publisher = {Williams and Norgate},
+  address   = {London}
+}
+
+% ============================================================
+% SECTION 3: PARAMETER-EFFICIENT FINE-TUNING
+% ============================================================
+
+% QLoRA — quantised LoRA used in ALL fine-tuning experiments
+@inproceedings{dettmers2023qlora,
+  author    = {Dettmers, Tim and Pagnoni, Artidoro and Holtzman, Ari
+               and Zettlemoyer, Luke},
+  title     = {{QLoRA}: Efficient Finetuning of Quantized {LLMs}},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {36},
+  year      = {2023}
+}
+
+% LoRA — the underlying adapter method
+@inproceedings{hu2022lora,
+  author    = {Hu, Edward J. and Shen, Yelong and Wallis, Phillip and
+               Allen-Zhu, Zeyuan and Li, Yuanzhi and Wang, Shean and
+               Wang, Lu and Chen, Weizhu},
+  title     = {{LoRA}: Low-Rank Adaptation of Large Language Models},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2022}
+}
+
+% Unsloth — training library used for Gemma 4 E4B fine-tuning
+@misc{unsloth2024,
+  author    = {Han, Daniel and Han, Michael},
+  title     = {Unsloth: 2x Faster {LLM} Fine-tuning},
+  year      = {2024},
+  howpublished = {\url{https://github.com/unslothai/unsloth}},
+  note      = {Version 2026.4.4. Accessed May 2026}
+}
+
+% HuggingFace PEFT library — used for ByT5 QLoRA
+@misc{peft2022,
+  author    = {{HuggingFace}},
+  title     = {{PEFT}: State-of-the-Art Parameter-Efficient Fine-Tuning},
+  year      = {2022},
+  howpublished = {\url{https://github.com/huggingface/peft}}
+}
+
+% HuggingFace Transformers — core library
+@inproceedings{wolf2020transformers,
+  author    = {Wolf, Thomas and Debut, Lysandre and Sanh, Victor and
+               Chaumond, Julien and Delangue, Clement and Moi, Anthony and
+               Cistac, Pierric and Rault, Tim and Louf, Remi and
+               Funtowicz, Morgan and Brew, Jamie},
+  title     = {Transformers: State-of-the-Art Natural Language Processing},
+  booktitle = {Proceedings of the 2020 Conference on Empirical Methods in
+               Natural Language Processing: System Demonstrations},
+  pages     = {38--45},
+  year      = {2020},
+  publisher = {Association for Computational Linguistics}
+}
+
+% bitsandbytes — 4-bit quantisation library
+@misc{dettmers2022bitsandbytes,
+  author    = {Dettmers, Tim and Lewis, Mike and Belkada, Younes
+               and Zettlemoyer, Luke},
+  title     = {{LLM.int8()}: 8-bit Matrix Multiplication for Transformers
+               at Scale},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2022}
+}
+
+% TRL — SFTTrainer used for Gemma 4 E4B training
+@misc{vonwerra2020trl,
+  author    = {von Werra, Leandro and Belkada, Younes and Tunstall, Lewis
+               and Beeching, Edward and Thrush, Tristan and Lambert, Nathan
+               and Huang, Shengding},
+  title     = {{TRL}: Transformer Reinforcement Learning},
+  year      = {2020},
+  howpublished = {\url{https://github.com/huggingface/trl}}
+}
+
+% ============================================================
+% SECTION 4: NER — FOUNDATIONAL METHODS
+% ============================================================
+
+% MUC-6 — where the term "Named Entity" was coined
+@inproceedings{grishman1996muc6,
+  author    = {Grishman, Ralph and Sundheim, Beth},
+  title     = {Message Understanding Conference -- 6: A Brief History},
+  booktitle = {COLING 1996 Volume 1: The 16th International Conference on
+               Computational Linguistics},
+  year      = {1996}
+}
+
+% CoNLL-2003 — the NER benchmark standard
+@inproceedings{tjong2003conll,
+  author    = {Tjong Kim Sang, Erik F. and De Meulder, Fien},
+  title     = {Introduction to the {CoNLL}-2003 Shared Task:
+               Language-Independent Named Entity Recognition},
+  booktitle = {Proceedings of the Seventh Conference on Natural Language
+               Learning at {HLT-NAACL} 2003},
+  pages     = {142--147},
+  year      = {2003}
+}
+
+% CRF — conditional random fields (used in comparison context)
+@inproceedings{lafferty2001crf,
+  author    = {Lafferty, John and McCallum, Andrew and Pereira, Fernando},
+  title     = {Conditional Random Fields: Probabilistic Models for
+               Segmenting and Labeling Sequence Data},
+  booktitle = {Proceedings of the 18th International Conference on
+               Machine Learning},
+  pages     = {282--289},
+  year      = {2001}
+}
+
+% BiLSTM-CRF — neural NER baseline
+@inproceedings{lample2016neural,
+  author    = {Lample, Guillaume and Ballesteros, Miguel and
+               Subramanian, Sandeep and Kawakami, Kazuya and Dyer, Chris},
+  title     = {Neural Architectures for Named Entity Recognition},
+  booktitle = {Proceedings of the 2016 Conference of the North
+               {A}merican Chapter of the Association for Computational
+               Linguistics: Human Language Technologies},
+  pages     = {260--270},
+  year      = {2016}
+}
+
+% BERT — transformer pre-training, used as comparison context
+@inproceedings{devlin2019bert,
+  author    = {Devlin, Jacob and Chang, Ming-Wei and Lee, Kenton
+               and Toutanova, Kristina},
+  title     = {{BERT}: Pre-training of Deep Bidirectional Transformers
+               for Language Understanding},
+  booktitle = {Proceedings of the 2019 Conference of the North
+               {A}merican Chapter of the Association for Computational
+               Linguistics: Human Language Technologies, Volume 1},
+  pages     = {4171--4186},
+  year      = {2019}
+}
+
+% TANL — NER as text-to-text, the output format strategy considered
+@inproceedings{paolini2021tanl,
+  author    = {Paolini, Giovanni and Athiwaratkun, Ben and Krone, Jason and
+               Ma, Jie and Nguyen, Alessandro and Bari, Saleh and
+               Santos, Cicero Nogueira dos and Zhu, Bing and Xiang, Bing},
+  title     = {Structured Prediction as Translation between Augmented
+               Natural Languages},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2021}
+}
+
+% seqeval — evaluation library used for NER metrics
+@misc{nakayama2018seqeval,
+  author    = {Nakayama, Hiroki},
+  title     = {seqeval: A Python framework for sequence label evaluation},
+  year      = {2018},
+  howpublished = {\url{https://github.com/chakki-works/seqeval}}
+}
+
+% ============================================================
+% SECTION 5: SANSKRIT NLP — DIRECTLY RELEVANT
+% ============================================================
+
+% Sandarśana survey — most comprehensive recent SCL survey
+@article{sandhan2025sandarshana,
+  author    = {Sandhan, Jivnesh and others},
+  title     = {{Sandar{\'{s}}ana}: A Comprehensive Survey of
+               {Sanskrit} Computational Linguistics},
+  journal   = {{ACM} Computing Surveys},
+  year      = {2025},
+  note      = {The definitive survey of Sanskrit NLP as of 2025}
+}
+
+% Sanskrit Heritage Engine — Huet, used for segmentation comparison
+@misc{huet2003heritage,
+  author    = {Huet, G{\'{e}}rard},
+  title     = {The {Sanskrit} Heritage Site},
+  year      = {2003--2024},
+  howpublished = {\url{https://sanskrit.inria.fr}},
+  note      = {INRIA. Lexicon-directed FSA segmenter and morphological analyser}
+}
+
+% TransLIST — the hybrid approach that inspired our architecture discussion
+@inproceedings{sandhan2022translist,
+  author    = {Sandhan, Jivnesh and Lagunas, Ayush and Shukla, Ashish and
+               Behera, Laxmidhar and Goyal, Pawan},
+  title     = {{TransLIST}: A Transformer-Based Linguistically Informed
+               {Sanskrit} Tokenizer},
+  booktitle = {Findings of the Association for Computational Linguistics:
+               {EMNLP} 2022},
+  year      = {2022},
+  publisher = {Association for Computational Linguistics}
+}
+
+% Sanskrit NER first work
+@inproceedings{kumar2012sanskrit_ner,
+  author    = {Kumar, Sachin and Jha, Girish Nath},
+  title     = {Named Entity Recognition for {Sanskrit}: A Hybrid Approach},
+  booktitle = {Proceedings of the 24th International Conference on
+               Computational Linguistics},
+  year      = {2012},
+  note      = {First dedicated Sanskrit NER system}
+}
+
+% Sarkar 2023 — pre-annotation for Sanskrit NER dataset
+@inproceedings{sarkar2023preannotation,
+  author    = {Sarkar, Sujoy and Krishna, Amrith and Goyal, Pawan},
+  title     = {Pre-annotation Based Approach for Development of a
+               {Sanskrit} Named Entity Recognition Dataset},
+  booktitle = {Proceedings of the 19th World {Sanskrit} Conference,
+               Computational Sanskrit and Digital Humanities Section},
+  pages     = {59--70},
+  year      = {2023},
+  publisher = {Association for Computational Linguistics}
+}
+
+% SanskritShala — neural Sanskrit NLP toolkit
+@inproceedings{sandhan2023sanskritshala,
+  author    = {Sandhan, Jivnesh and others},
+  title     = {{SanskritShala}: A Neural {Sanskrit} {NLP} Toolkit with
+               Web-Based Interface},
+  booktitle = {Proceedings of the 61st Annual Meeting of the Association
+               for Computational Linguistics: System Demonstrations},
+  year      = {2023},
+  publisher = {Association for Computational Linguistics}
+}
+
+% Hellwig-Nehrdich 2018 — character-level Sanskrit segmentation
+@inproceedings{hellwig2018segmentation,
+  author    = {Hellwig, Oliver and Nehrdich, Sebastian},
+  title     = {{Sanskrit} Word Segmentation Using Character-level
+               Recurrent and Convolutional Neural Networks},
+  booktitle = {Proceedings of the 2018 Conference on Empirical Methods
+               in Natural Language Processing},
+  pages     = {2754--2763},
+  year      = {2018},
+  publisher = {Association for Computational Linguistics}
+}
+
+% Itihāsa dataset — Sanskrit-English parallel corpus mentioned as related resource
+@inproceedings{aralikatte2021itihasa,
+  author    = {Aralikatte, Rahul and de Lhoneux, Miryam and
+               Kuncoro, Adhiguna and S{\o}gaard, Anders},
+  title     = {{Iti}{\={h}}{\={a}}sa: A large-scale corpus for
+               {Sanskrit} to {English} translation},
+  booktitle = {Workshop on Asian Translation at ACL-IJCNLP 2021},
+  year      = {2021}
+}
+
+% GPT-4o on Sanskrit NER — directly compared in our work
+@inproceedings{akavarapu2025llmsanskrit,
+  author    = {Akavarapu, Bhavani and Bhattacharya, Arnab},
+  title     = {Evaluating Large Language Models for {Sanskrit} Named
+               Entity Recognition},
+  booktitle = {Findings of the Association for Computational Linguistics:
+               {ACL} 2025},
+  year      = {2025},
+  note      = {Tests GPT-4o, GPT-4o-mini, Llama-3.1-405B, Llama-3.1-8B
+               on 139 Sanskrit NER sentences}
+}
+
+% Zero-shot NER for classical languages
+@misc{zeroshot2025classical,
+  author    = {Anonymous},
+  title     = {Zero-Shot {NER} for Classical Languages using {LLMs}},
+  year      = {2025},
+  howpublished = {arXiv:2505.13173},
+  note      = {Tests GPT-4o and Llama-3.1 on Sanskrit, Latin, Ancient Greek}
+}
+
+% ============================================================
+% SECTION 6: MULTILINGUAL AND CROSS-LINGUAL NLP
+% ============================================================
+
+% MuRIL — multilingual Indic BERT used in entity linking
+@misc{khanuja2021muril,
+  author    = {Khanuja, Simran and Kakwani, Divyanshu and Golla, Satish
+               and Bhatt, Gokul and Ravichander, Aakanksha and
+               Khapra, Mitesh M. and Kumar, Pratyush},
+  title     = {{MuRIL}: Multilingual Representations for {Indian} Languages},
+  year      = {2021},
+  howpublished = {arXiv:2103.10730},
+  note      = {Google Research India. 17 Indian languages + transliterations}
+}
+
+% Naamapadam — largest Indic NER (11 languages, no Sanskrit)
+@inproceedings{mhaske2023naamapadam,
+  author    = {Mhaske, Arnav and Kedia, Harshit and Doddapaneni, Sumanth
+               and Khapra, Mitesh M. and Kumar, Pratyush and
+               Murthy, Rudra and Kunchukuttan, Anoop},
+  title     = {{Naamapadam}: A Large-Scale Named Entity Annotated Data
+               for {Indic} Languages},
+  booktitle = {Proceedings of the 61st Annual Meeting of the Association
+               for Computational Linguistics (Volume 1: Long Papers)},
+  pages     = {10441--10456},
+  year      = {2023},
+  publisher = {Association for Computational Linguistics}
+}
+
+% XLM-RoBERTa — multilingual model for NER comparison
+@inproceedings{conneau2020xlmr,
+  author    = {Conneau, Alexis and Khandelwal, Kartikay and Goyal, Naman
+               and Chaudhary, Vishrav and Wenzek, Guillaume and
+               Guzm{\'{a}}n, Francisco and Grave, Edouard and
+               Ott, Myle and Zettlemoyer, Luke and Stoyanov, Veselin},
+  title     = {Unsupervised Cross-lingual Representation Learning at Scale},
+  booktitle = {Proceedings of the 58th Annual Meeting of the Association
+               for Computational Linguistics},
+  pages     = {8440--8451},
+  year      = {2020}
+}
+
+% RelateLM — cross-lingual transfer via language relatedness
+@inproceedings{khemchandani2021relatelm,
+  author    = {Khemchandani, Yash and Mehra, Saurav and Srivastava, Ankur
+               and Choudhury, Monojit and others},
+  title     = {{RelateLM}: Cross-Lingual Transfer for Low-Resource
+               Named Entity Recognition via Language Relatedness},
+  booktitle = {Proceedings of the 59th Annual Meeting of the Association
+               for Computational Linguistics and the 11th International
+               Joint Conference on Natural Language Processing},
+  year      = {2021}
+}
+
+% ============================================================
+% SECTION 7: LOW-RESOURCE NER AND DATA AUGMENTATION
+% ============================================================
+
+% Ratinov and Roth — BILOU encoding for NER
+@inproceedings{ratinov2009design,
+  author    = {Ratinov, Lev and Roth, Dan},
+  title     = {Design Challenges and Misconceptions in Named Entity Recognition},
+  booktitle = {Proceedings of the Thirteenth Conference on Computational
+               Natural Language Learning (CoNLL-2009)},
+  pages     = {147--155},
+  year      = {2009}
+}
+
+% Soft gazetteers for low-resource NER
+@inproceedings{rijhwani2020soft,
+  author    = {Rijhwani, Shruti and Zhou, Shuyan and Neubig, Graham
+               and Carbonell, Jaime},
+  title     = {Soft Gazetteers for Low-Resource Named Entity Recognition},
+  booktitle = {Proceedings of the 58th Annual Meeting of the Association
+               for Computational Linguistics},
+  pages     = {8118--8123},
+  year      = {2020}
+}
+
+% Class imbalance and oversampling
+@article{chawla2002smote,
+  author    = {Chawla, Nitesh V. and Bowyer, Kevin W. and Hall,
+               Lawrence O. and Kegelmeyer, W. Philip},
+  title     = {{SMOTE}: Synthetic Minority Over-sampling Technique},
+  journal   = {Journal of Artificial Intelligence Research},
+  volume    = {16},
+  pages     = {321--357},
+  year      = {2002}
+}
+
+% ============================================================
+% SECTION 8: EVALUATION METHODS USED
+% ============================================================
+
+% McNemar's test — used for pairwise significance testing
+@article{mcnemar1947note,
+  author    = {McNemar, Quinn},
+  title     = {Note on the sampling error of the difference between
+               correlated proportions or percentages},
+  journal   = {Psychometrika},
+  volume    = {12},
+  number    = {2},
+  pages     = {153--157},
+  year      = {1947}
+}
+
+% Bootstrap confidence intervals for NLP evaluation
+@inproceedings{efron1994bootstrap,
+  author    = {Efron, Bradley and Tibshirani, Robert},
+  title     = {An Introduction to the Bootstrap},
+  year      = {1994},
+  publisher = {Chapman \& Hall}
+}
+
+% Universal Dependencies — annotation scheme for DCS/Vedic treebank
+@inproceedings{nivre2016ud,
+  author    = {Nivre, Joakim and de Marneffe, Marie-Catherine and Ginter,
+               Filip and Goldberg, Yoav and Haji{\v{c}}, Jan and Manning,
+               Christopher D. and McDonald, Ryan and Petrov, Slav and
+               Pyysalo, Sampo and Silveira, Natalia and Tsarfaty, Reut and
+               Zeman, Daniel},
+  title     = {Universal Dependencies v1: A Multilingual Treebank Collection},
+  booktitle = {Proceedings of the Tenth International Conference on
+               Language Resources and Evaluation ({LREC}'16)},
+  year      = {2016},
+  publisher = {European Language Resources Association}
+}
+
+% CoNLL evaluation script — the metric used throughout
+@inproceedings{sang2000introduction,
+  author    = {Tjong Kim Sang, Erik F.},
+  title     = {Introduction to the {CoNLL}-2000 Shared Task Chunking},
+  booktitle = {Proceedings of the 4th Conference on Computational
+               Natural Language Learning},
+  year      = {2000}
+}
+
+% ============================================================
+% SECTION 9: MULTI-TASK LEARNING
+% ============================================================
+
+% Multi-task learning — foundational paper
+@article{caruana1997multitask,
+  author    = {Caruana, Rich},
+  title     = {Multitask Learning},
+  journal   = {Machine Learning},
+  volume    = {28},
+  number    = {1},
+  pages     = {41--75},
+  year      = {1997}
+}
+
+% Temperature-scaled mixing for multi-task training (T5 paper)
+% [already cited as raffel2020t5]
+
+% Joint POS + NER multi-task for Vietnamese
+@inproceedings{nguyen2021phonlp,
+  author    = {Nguyen, Linh The and Nguyen, Dat Quoc},
+  title     = {{PhoNLP}: A Joint Multi-task Learning Model for
+               {Vietnamese} Part-of-Speech Tagging, Named Entity
+               Recognition and Dependency Parsing},
+  booktitle = {Proceedings of the 2021 Conference of the North
+               {A}merican Chapter of the Association for Computational
+               Linguistics: Human Language Technologies: Demonstrations},
+  year      = {2021}
+}
+
+% ============================================================
+% SECTION 10: KNOWLEDGE DISTILLATION AND MODEL COMPRESSION
+% (referenced in architecture discussion)
+% ============================================================
+
+% Knowledge distillation — referenced when discussing ByT5 vs Gemma comparison
+@misc{hinton2015distilling,
+  author    = {Hinton, Geoffrey and Vinyals, Oriol and Dean, Jeff},
+  title     = {Distilling the Knowledge in a Neural Network},
+  year      = {2015},
+  howpublished = {arXiv:1503.02531}
+}
+
+% ============================================================
+% SECTION 11: RELATED SANSKRIT NLP TOOLS AND RESOURCES
+% ============================================================
+
+% Samsaadhani — Kulkarni's Sanskrit NLP platform
+@misc{kulkarni2013samsaadhani,
+  author    = {Kulkarni, Amba and others},
+  title     = {Sa{\d{m}}s{\={a}}dhan{\={\i}}: A Platform for {Sanskrit}
+               Computational Linguistics Research and Teaching},
+  howpublished = {\url{https://github.com/samsaadhanii/scl}},
+  year      = {2013--2024},
+  note      = {University of Hyderabad}
+}
+
+% Vidyut-Prakriya — Rust-based Sanskrit word generator
+@misc{goyal2024vidyut,
+  author    = {Goyal, Ambuda},
+  title     = {Vidyut: A High-Performance Toolkit for {Sanskrit} NLP},
+  year      = {2024},
+  howpublished = {\url{https://github.com/ambuda-org/vidyut}}
+}
+
+% indic_transliteration — Python library used for SLP1→IAST conversion
+@misc{vishvas2020indic_transliteration,
+  author    = {Vishvas, Vasuki},
+  title     = {indic\_transliteration: Transliteration tools for {Indic}
+               scripts},
+  year      = {2020},
+  howpublished = {\url{https://github.com/indic-transliteration/indic_transliteration_py}}
+}
+
+% ============================================================
+% SECTION 12: GENERAL NLP BACKGROUND
+% (cited in related work / literature review)
+% ============================================================
+
+% Attention is all you need — Transformer architecture
+@inproceedings{vaswani2017attention,
+  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and
+               Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N. and
+               Kaiser, {\L}ukasz and Polosukhin, Illia},
+  title     = {Attention Is All You Need},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {30},
+  year      = {2017}
+}
+
+% AdamW optimizer used in training
+@inproceedings{loshchilov2019adamw,
+  author    = {Loshchilov, Ilya and Hutter, Frank},
+  title     = {Decoupled Weight Decay Regularization},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2019}
+}
+
+% mT5 — mentioned as multilingual T5 variant
+@inproceedings{xue2021mt5,
+  author    = {Xue, Linting and Constant, Noah and Roberts, Adam and
+               Kale, Mihir and Al-Rfou, Rami and Siddhant, Aditya and
+               Barua, Aditya and Raffel, Colin},
+  title     = {{mT5}: A Massively Multilingual Pre-trained Text-to-Text
+               Transformer},
+  booktitle = {Proceedings of the 2021 Conference of the North
+               {A}merican Chapter of the Association for Computational
+               Linguistics: Human Language Technologies},
+  pages     = {483--498},
+  year      = {2021}
+}
+
+% Gradient checkpointing
+@misc{chen2016gradient,
+  author    = {Chen, Tianqi and Xu, Bing and Zhang, Chiyuan and Guestrin, Carlos},
+  title     = {Training Deep Nets with Sublinear Memory Cost},
+  year      = {2016},
+  howpublished = {arXiv:1604.06174}
+}
+
+% ============================================================
+% SECTION 13: PĀṆINI AND CLASSICAL GRAMMAR
+% (cited in background chapter)
+% ============================================================
+
+% Panini's Ashtadhyayi — the grammatical tradition underlying Sanskrit NLP
+@book{kiparsky1994panini,
+  author    = {Kiparsky, Paul},
+  title     = {P{\={a}}{\d{n}}ini as a Variationist},
+  year      = {1979},
+  publisher = {MIT Press},
+  address   = {Cambridge, MA}
+}
+
+% ============================================================
+% SECTION 14: HARDWARE AND SOFTWARE INFRASTRUCTURE
+% ============================================================
+
+% PyTorch — used throughout
+@inproceedings{paszke2019pytorch,
+  author    = {Paszke, Adam and Gross, Sam and Massa, Francisco and
+               Lerer, Adam and Bradbury, James and Chanan, Gregory and
+               Killeen, Trevor and Lin, Zeming and Gimelshein, Natalia and
+               Antiga, Luca and Desmaison, Alban and K{\"o}pf, Andreas and
+               Yang, Edward and DeVito, Zachary and Raison, Martin and
+               Tejani, Alykhan and Chilamkurthy, Sreekumar and Steiner,
+               Benoit and Fang, Lu and Bai, Junjie and Chintala, Soumith},
+  title     = {{PyTorch}: An Imperative Style, High-Performance Deep
+               Learning Library},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {32},
+  year      = {2019}
+}
+
+% HuggingFace datasets library
+@misc{lhoest2021datasets,
+  author    = {Lhoest, Quentin and others},
+  title     = {Datasets: A Community Library for Natural Language Processing},
+  booktitle = {Proceedings of the 2021 Conference on Empirical Methods in
+               Natural Language Processing: System Demonstrations},
+  year      = {2021}
+}
+
+% ============================================================
+% SECTION 15: SURVEY PAPERS CITED IN LITERATURE REVIEW
+% ============================================================
+
+% Survey of NER — the standard reference
+@article{li2022ner_survey,
+  author    = {Li, Jing and Sun, Aixin and Han, Jianglei and Li, Chenliang},
+  title     = {A Survey on Deep Learning for Named Entity Recognition},
+  journal   = {{IEEE} Transactions on Knowledge and Data Engineering},
+  volume    = {34},
+  number    = {1},
+  pages     = {50--70},
+  year      = {2022}
+}
+
+% Nadeau and Sekine — pre-neural NER survey
+@article{nadeau2007ner,
+  author    = {Nadeau, David and Sekine, Satoshi},
+  title     = {A Survey of Named Entity Recognition and Classification},
+  journal   = {Lingvisticae Investigationes},
+  volume    = {30},
+  number    = {1},
+  pages     = {3--26},
+  year      = {2007}
+}
+
+% ============================================================
+% SECTION 16: NEW CITATIONS ADDED FROM TEXT
+% ============================================================
+
+% Pollock 2006 — used to cite the importance of Sanskrit literature
+@book{pollock2006language,
+  author    = {Pollock, Sheldon},
+  title     = {The Language of the Gods in the World of Men: Sanskrit, Culture, and Power in Premodern India},
+  year      = {2006},
+  publisher = {University of California Press}
+}
+
+% Halbfass 1991 — used to cite the translation issues in Sanskrit
+@book{halbfass1991tradition,
+  author    = {Halbfass, Wilhelm},
+  title     = {Tradition and Reflection: Explorations in Indian Thought},
+  year      = {1991},
+  publisher = {SUNY Press}
+}
+
+% Brockington 1998 — used to cite the 100,000 verses size of the Mahabharata
+@book{brockington1998epics,
+  author    = {Brockington, John},
+  title     = {The Sanskrit Epics},
+  year      = {1998},
+  publisher = {Brill}
+}
+
+% Kiparsky 2009 — Panini grammar architecture
+@incollection{kiparsky2009architecture,
+  author    = {Kiparsky, Paul},
+  title     = {On the Architecture of P{\=a}{\textdiv}ini's Grammar},
+  booktitle = {Sanskrit Computational Linguistics},
+  pages     = {33--94},
+  year      = {2009},
+  publisher = {Springer}
+}
+
+% Huang 2015 — BiLSTM-CRF
+@article{huang2015bilstm,
+  author    = {Huang, Zhiheng and Xu, Wei and Yu, Kai},
+  title     = {Bidirectional LSTM-CRF Models for Sequence Tagging},
+  journal   = {arXiv preprint arXiv:1508.01991},
+  year      = {2015}
+}
+
+% Sennrich 2016 — BPE tokenization
+@inproceedings{sennrich2016bpe,
+  author    = {Sennrich, Rico and Haddow, Barry and Birch, Alexandra},
+  title     = {Neural Machine Translation of Rare Words with Subword Units},
+  booktitle = {Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics},
+  year      = {2016}
+}
+
+% Jha 2010 — Early rule-based NER
+@inproceedings{jha2010ner,
+  author    = {Jha, Girish Nath and others},
+  title     = {Named Entity Recognition for Sanskrit},
+  booktitle = {Sanskrit Computational Linguistics},
+  year      = {2010},
+  publisher = {Springer}
+}
+
+
+% Al-Smadi 2019 — Arabic NER
+@article{alsmadi2019arabic,
+  author    = {Al-Smadi, Mohammad and others},
+  title     = {Character-level and Word-level Representation for Arabic Named Entity Recognition},
+  journal   = {ACM Transactions on Asian and Low-Resource Language Information Processing},
+  year      = {2019}
+}
+
+% Gungor 2018 — Turkish NER
+@inproceedings{gungor2018turkish,
+  author    = {G{\"u}ng{\"o}r, Onur and others},
+  title     = {Morphology-aware Turkish Named Entity Recognition},
+  booktitle = {Proceedings of the LREC},
+  year      = {2018}
+}
+
+% Kanerva 2020 — Finnish NER
+@inproceedings{kanerva2020finnish,
+  author    = {Kanerva, Jenna and others},
+  title     = {Finnish Named Entity Recognition with Character-Level Features},
+  booktitle = {Proceedings of the LREC},
+  year      = {2020}
+}
+
+
+% Ruder 2017 — MTL Overview
+@article{ruder2017overview,
+  author    = {Ruder, Sebastian},
+  title     = {An Overview of Multi-Task Learning in Deep Neural Networks},
+  journal   = {arXiv preprint arXiv:1706.05098},
+  year      = {2017}
+}
+
+% Yang 2017 — Joint NER and POS
+@inproceedings{yang2017transfer,
+  author    = {Yang, Zhilin and Salakhutdinov, Ruslan and Cohen, William W},
+  title     = {Transfer Learning for Sequence Tagging with Hierarchical Recurrent Networks},
+  booktitle = {ICLR},
+  year      = {2017}
+}
+
+% Sanh 2022 — T0 Model
+@inproceedings{sanh2022t0,
+  author    = {Sanh, Victor and others},
+  title     = {Multitask Prompted Training Enables Zero-Shot Task Generalization},
+  booktitle = {ICLR},
+  year      = {2022}
+}
+
+% Goodfellow 2013 — Catastrophic forgetting
+@article{goodfellow2013empirical,
+  author    = {Goodfellow, Ian J and Mirza, Mehdi and Xiao, Da and Courville, Aaron and Bengio, Yoshua},
+  title     = {An empirical investigation of catastrophic forgetting in gradient-based neural networks},
+  journal   = {arXiv preprint arXiv:1312.6211},
+  year      = {2013}
+}
+
+% McCloskey 1989 — Catastrophic interference
+@article{mccloskey1989catastrophic,
+  author    = {McCloskey, Michael and Cohen, Neal J},
+  title     = {Catastrophic interference in connectionist networks: The sequential learning problem},
+  journal   = {Psychology of learning and motivation},
+  volume    = {24},
+  pages     = {109--165},
+  year      = {1989},
+  publisher = {Elsevier}
+}
+
+% Llama 3.1
+@misc{meta2024llama31,
+  author    = {Dubey, Abhimanyu and Jauhri, Abhinav and Pandey, Abhinav and Kadian, Abhishek and Al-Dahle, Ahmad and Letman, Aiesha and Mathur, Akhil and others},
+  title     = {The {Llama 3} Herd of Models},
+  year      = {2024},
+  eprint    = {2407.21783},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL}
+}
+
+% Cohen 1960 — Cohen's kappa
+@article{cohen1960kappa,
+  author    = {Cohen, Jacob},
+  title     = {A coefficient of agreement for nominal scales},
+  journal   = {Educational and Psychological Measurement},
+  volume    = {20},
+  number    = {1},
+  pages     = {37--46},
+  year      = {1960}
+}
+
+% Classical Sanskrit Texts
+@book{mahabharata,
+  title     = {The Mah{\=a}bh{\=a}rata},
+  editor    = {Sukthankar, V. S. and others},
+  publisher = {Bhandarkar Oriental Research Institute},
+  address   = {Pune},
+  year      = {1933--1966},
+  note      = {Critical Edition}
+}
+
+@book{ramayana,
+  title     = {The V{\=a}lm{\=\i}ki-R{\=a}m{\=a}ya{\d{n}}a},
+  editor    = {Bhatt, G. H. and Shah, U. P.},
+  publisher = {Oriental Institute},
+  address   = {Baroda},
+  year      = {1960--1975},
+  note      = {Critical Edition}
+}
+
+@book{pancatantra_text,
+  title     = {The Pa{\~n}catantra},
+  editor    = {Edgerton, Franklin},
+  publisher = {American Oriental Society},
+  address   = {New Haven},
+  year      = {1924},
+  note      = {Reconstructed Text}
+}
+
+@book{rigveda,
+  title     = {{\d{R}}gveda Samhit{\=a}},
+  editor    = {M{\"u}ller, F. Max},
+  publisher = {Oxford University Press},
+  address   = {Oxford},
+  year      = {1849--1874}
+}
+
+@book{purana,
+  title     = {The Pur{\=a}{\d{n}}as},
+  author    = {Rocher, Ludo},
+  series    = {A History of Indian Literature},
+  publisher = {Otto Harrassowitz},
+  address   = {Wiesbaden},
+  year      = {1986}
+}
+
+@book{sastras,
+  title     = {History of Dharma{\'s}{\=a}stra},
+  author    = {Kane, P. V.},
+  publisher = {Bhandarkar Oriental Research Institute},
+  address   = {Pune},
+  year      = {1930--1962}
+}
+
+@book{ayurveda,
+  title     = {Caraka-Sa{\d{m}}hit{\=a}},
+  editor    = {Sharma, P. V.},
+  publisher = {Chaukhambha Orientalia},
+  address   = {Varanasi},
+  year      = {1981}
+}

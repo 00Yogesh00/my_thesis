@@ -1,0 +1,372 @@
+\begin{thebibliography}{55}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Sarkar et~al.(2025)Sarkar, Sarkar, Jagadeeshan, Sandhan, Krishna, and
+  Goyal]{sarkar2025mahanama}
+Sujoy Sarkar, Amitabha Sarkar, Shyam Jagadeeshan, Jivnesh Sandhan, Amrith
+  Krishna, and Pawan Goyal.
+\newblock {Mah{\={a}}n{\={a}}ma}: A large-scale {Sanskrit} named entity
+  discovery and linking dataset.
+\newblock In \emph{Proceedings of the 2025 Conference on Empirical Methods in
+  Natural Language Processing}, pages 24970--24984. Association for
+  Computational Linguistics, 2025.
+
+\bibitem[Pollock(2006)]{pollock2006language}
+Sheldon Pollock.
+\newblock \emph{The Language of the Gods in the World of Men: Sanskrit,
+  Culture, and Power in Premodern India}.
+\newblock University of California Press, 2006.
+
+\bibitem[Sukthankar et~al.(1933--1966)]{mahabharata}
+V.~S. Sukthankar et~al., editors.
+\newblock \emph{The Mah{\=a}bh{\=a}rata}.
+\newblock Bhandarkar Oriental Research Institute, Pune, 1933--1966.
+\newblock Critical Edition.
+
+\bibitem[Brockington(1998)]{brockington1998epics}
+John Brockington.
+\newblock \emph{The Sanskrit Epics}.
+\newblock Brill, 1998.
+
+\bibitem[Bhatt and Shah(1960--1975)]{ramayana}
+G.~H. Bhatt and U.~P. Shah, editors.
+\newblock \emph{The V{\=a}lm{\=\i}ki-R{\=a}m{\=a}ya{\d{n}}a}.
+\newblock Oriental Institute, Baroda, 1960--1975.
+\newblock Critical Edition.
+
+\bibitem[Rocher(1986)]{purana}
+Ludo Rocher.
+\newblock \emph{The Pur{\=a}{\d{n}}as}.
+\newblock A History of Indian Literature. Otto Harrassowitz, Wiesbaden, 1986.
+
+\bibitem[Kane(1930--1962)]{sastras}
+P.~V. Kane.
+\newblock \emph{History of Dharma{\'s}{\=a}stra}.
+\newblock Bhandarkar Oriental Research Institute, Pune, 1930--1962.
+
+\bibitem[Halbfass(1991)]{halbfass1991tradition}
+Wilhelm Halbfass.
+\newblock \emph{Tradition and Reflection: Explorations in Indian Thought}.
+\newblock SUNY Press, 1991.
+
+\bibitem[Nadeau and Sekine(2007)]{nadeau2007ner}
+David Nadeau and Satoshi Sekine.
+\newblock A survey of named entity recognition and classification.
+\newblock \emph{Lingvisticae Investigationes}, 30\penalty0 (1):\penalty0 3--26,
+  2007.
+
+\bibitem[Sarkar et~al.(2023)Sarkar, Krishna, and
+  Goyal]{sarkar2023preannotation}
+Sujoy Sarkar, Amrith Krishna, and Pawan Goyal.
+\newblock Pre-annotation based approach for development of a {Sanskrit} named
+  entity recognition dataset.
+\newblock In \emph{Proceedings of the 19th World {Sanskrit} Conference,
+  Computational Sanskrit and Digital Humanities Section}, pages 59--70.
+  Association for Computational Linguistics, 2023.
+
+\bibitem[Hellwig(2010--2024)]{hellwig2010dcs}
+Oliver Hellwig.
+\newblock {DCS} --- the digital corpus of {Sanskrit}.
+\newblock \url{https://github.com/OliverHellwig/sanskrit}, 2010--2024.
+\newblock Creative Commons licensed. Approximately 650,000 annotated sentences
+  from 250+ texts.
+
+\bibitem[Hellwig and Biagetti(2025)]{hellwig2025sembank}
+Oliver Hellwig and Erica Biagetti.
+\newblock The {Sanskrit} sembank: A lexical semantic resource for classical
+  {Sanskrit}.
+\newblock In \emph{Proceedings of the 19th World {Sanskrit} Conference}, 2025.
+\newblock 600,000+ words mapped to Princeton WordNet synsets.
+
+\bibitem[Edgerton(1924)]{pancatantra_text}
+Franklin Edgerton, editor.
+\newblock \emph{The Pa{\~n}catantra}.
+\newblock American Oriental Society, New Haven, 1924.
+\newblock Reconstructed Text.
+
+\bibitem[Nehrdich et~al.(2024)Nehrdich, Hellwig, and
+  Keutzer]{nehrdich2024byt5sanskrit}
+Sebastian Nehrdich, Oliver Hellwig, and Kurt Keutzer.
+\newblock One model is all you need: {ByT5-Sanskrit}, a unified model for
+  {Sanskrit} {NLP} tasks.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  {EMNLP} 2024}, pages 13742--13751. Association for Computational Linguistics,
+  2024.
+\newblock URL \url{https://aclanthology.org/2024.findings-emnlp.808}.
+
+\bibitem[Kiparsky(2009)]{kiparsky2009architecture}
+Paul Kiparsky.
+\newblock On the architecture of p{\=a}{\textdiv}ini's grammar.
+\newblock In \emph{Sanskrit Computational Linguistics}, pages 33--94. Springer,
+  2009.
+
+\bibitem[Hellwig and Nehrdich(2018)]{hellwig2018segmentation}
+Oliver Hellwig and Sebastian Nehrdich.
+\newblock {Sanskrit} word segmentation using character-level recurrent and
+  convolutional neural networks.
+\newblock In \emph{Proceedings of the 2018 Conference on Empirical Methods in
+  Natural Language Processing}, pages 2754--2763. Association for Computational
+  Linguistics, 2018.
+
+\bibitem[Grishman and Sundheim(1996)]{grishman1996muc6}
+Ralph Grishman and Beth Sundheim.
+\newblock Message understanding conference -- 6: A brief history.
+\newblock In \emph{COLING 1996 Volume 1: The 16th International Conference on
+  Computational Linguistics}, 1996.
+
+\bibitem[Lafferty et~al.(2001)Lafferty, McCallum, and Pereira]{lafferty2001crf}
+John Lafferty, Andrew McCallum, and Fernando Pereira.
+\newblock Conditional random fields: Probabilistic models for segmenting and
+  labeling sequence data.
+\newblock In \emph{Proceedings of the 18th International Conference on Machine
+  Learning}, pages 282--289, 2001.
+
+\bibitem[Ratinov and Roth(2009)]{ratinov2009design}
+Lev Ratinov and Dan Roth.
+\newblock Design challenges and misconceptions in named entity recognition.
+\newblock In \emph{Proceedings of the Thirteenth Conference on Computational
+  Natural Language Learning (CoNLL-2009)}, pages 147--155, 2009.
+
+\bibitem[Huang et~al.(2015)Huang, Xu, and Yu]{huang2015bilstm}
+Zhiheng Huang, Wei Xu, and Kai Yu.
+\newblock Bidirectional lstm-crf models for sequence tagging.
+\newblock \emph{arXiv preprint arXiv:1508.01991}, 2015.
+
+\bibitem[Devlin et~al.(2019)Devlin, Chang, Lee, and Toutanova]{devlin2019bert}
+Jacob Devlin, Ming-Wei Chang, Kenton Lee, and Kristina Toutanova.
+\newblock {BERT}: Pre-training of deep bidirectional transformers for language
+  understanding.
+\newblock In \emph{Proceedings of the 2019 Conference of the North {A}merican
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies, Volume 1}, pages 4171--4186, 2019.
+
+\bibitem[Sennrich et~al.(2016)Sennrich, Haddow, and Birch]{sennrich2016bpe}
+Rico Sennrich, Barry Haddow, and Alexandra Birch.
+\newblock Neural machine translation of rare words with subword units.
+\newblock In \emph{Proceedings of the 54th Annual Meeting of the Association
+  for Computational Linguistics}, 2016.
+
+\bibitem[S{\o}rensen(1904)]{sorensen1904index}
+S{\o}ren S{\o}rensen.
+\newblock \emph{An Index to the Names in the {Mah{\={a}}bh{\={a}}rata}}.
+\newblock Williams and Norgate, London, 1904.
+
+\bibitem[Jha et~al.(2010)]{jha2010ner}
+Girish~Nath Jha et~al.
+\newblock Named entity recognition for sanskrit.
+\newblock In \emph{Sanskrit Computational Linguistics}. Springer, 2010.
+
+\bibitem[M{\"u}ller(1849--1874)]{rigveda}
+F.~Max M{\"u}ller, editor.
+\newblock \emph{{\d{R}}gveda Samhit{\=a}}.
+\newblock Oxford University Press, Oxford, 1849--1874.
+
+\bibitem[Xue et~al.(2022)Xue, Barua, Constant, Al-Rfou, Narang, Kale, Roberts,
+  and Raffel]{xue2022byt5}
+Linting Xue, Aditya Barua, Noah Constant, Rami Al-Rfou, Sharan Narang, Mihir
+  Kale, Adam Roberts, and Colin Raffel.
+\newblock {ByT5}: Towards a token-free future with pre-trained byte-to-byte
+  models.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  10:\penalty0 291--306, 2022.
+
+\bibitem[Al-Smadi et~al.(2019)]{alsmadi2019arabic}
+Mohammad Al-Smadi et~al.
+\newblock Character-level and word-level representation for arabic named entity
+  recognition.
+\newblock \emph{ACM Transactions on Asian and Low-Resource Language Information
+  Processing}, 2019.
+
+\bibitem[G{\"u}ng{\"o}r et~al.(2018)]{gungor2018turkish}
+Onur G{\"u}ng{\"o}r et~al.
+\newblock Morphology-aware turkish named entity recognition.
+\newblock In \emph{Proceedings of the LREC}, 2018.
+
+\bibitem[Kanerva et~al.(2020)]{kanerva2020finnish}
+Jenna Kanerva et~al.
+\newblock Finnish named entity recognition with character-level features.
+\newblock In \emph{Proceedings of the LREC}, 2020.
+
+\bibitem[Caruana(1997)]{caruana1997multitask}
+Rich Caruana.
+\newblock Multitask learning.
+\newblock \emph{Machine Learning}, 28\penalty0 (1):\penalty0 41--75, 1997.
+
+\bibitem[Ruder(2017)]{ruder2017overview}
+Sebastian Ruder.
+\newblock An overview of multi-task learning in deep neural networks.
+\newblock \emph{arXiv preprint arXiv:1706.05098}, 2017.
+
+\bibitem[Yang et~al.(2017)Yang, Salakhutdinov, and Cohen]{yang2017transfer}
+Zhilin Yang, Ruslan Salakhutdinov, and William~W Cohen.
+\newblock Transfer learning for sequence tagging with hierarchical recurrent
+  networks.
+\newblock In \emph{ICLR}, 2017.
+
+\bibitem[Sanh et~al.(2022)]{sanh2022t0}
+Victor Sanh et~al.
+\newblock Multitask prompted training enables zero-shot task generalization.
+\newblock In \emph{ICLR}, 2022.
+
+\bibitem[Zeman et~al.(2023)]{zeman2023ud}
+Daniel Zeman et~al.
+\newblock Universal dependencies 2.13.
+\newblock \url{https://universaldependencies.org}, 2023.
+\newblock UD\_Sanskrit-UFAL: Pañcatantra fables, 230 sentences.
+
+\bibitem[Hellwig et~al.(2020)Hellwig, Scarlata, Ackermann, and
+  Widmer]{hellwig2020vedictreebank}
+Oliver Hellwig, Salvatore Scarlata, Elia Ackermann, and Paul Widmer.
+\newblock The treebank of {Vedic} {Sanskrit}.
+\newblock In \emph{Proceedings of the Twelfth Language Resources and Evaluation
+  Conference}, pages 5137--5146. European Language Resources Association, 2020.
+
+\bibitem[Xue et~al.(2021)Xue, Constant, Roberts, Kale, Al-Rfou, Siddhant,
+  Barua, and Raffel]{xue2021mt5}
+Linting Xue, Noah Constant, Adam Roberts, Mihir Kale, Rami Al-Rfou, Aditya
+  Siddhant, Aditya Barua, and Colin Raffel.
+\newblock {mT5}: A massively multilingual pre-trained text-to-text transformer.
+\newblock In \emph{Proceedings of the 2021 Conference of the North {A}merican
+  Chapter of the Association for Computational Linguistics: Human Language
+  Technologies}, pages 483--498, 2021.
+
+\bibitem[Dettmers et~al.(2023)Dettmers, Pagnoni, Holtzman, and
+  Zettlemoyer]{dettmers2023qlora}
+Tim Dettmers, Artidoro Pagnoni, Ari Holtzman, and Luke Zettlemoyer.
+\newblock {QLoRA}: Efficient finetuning of quantized {LLMs}.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~36, 2023.
+
+\bibitem[{Google DeepMind}(2025{\natexlab{a}})]{google2025gemma4}
+{Google DeepMind}.
+\newblock {Gemma 4}: Open models based on {Gemini} research and technology.
+\newblock \url{https://huggingface.co/google/gemma-4-E4B-it},
+  2025{\natexlab{a}}.
+\newblock Apache 2.0 license. Accessed May 2026.
+
+\bibitem[{Google DeepMind}(2025{\natexlab{b}})]{google2025gemma3}
+{Google DeepMind}.
+\newblock {Gemma 3} technical report.
+\newblock
+  \url{https://storage.googleapis.com/deepmind-media/gemma/gemma3report.pdf},
+  2025{\natexlab{b}}.
+
+\bibitem[{Qwen Team, Alibaba Cloud}(2025)]{qwen2025qwen35}
+{Qwen Team, Alibaba Cloud}.
+\newblock {Qwen3} technical report.
+\newblock \url{https://qwenlm.github.io/blog/qwen3/}, 2025.
+\newblock Accessed May 2026.
+
+\bibitem[Dubey et~al.(2024)Dubey, Jauhri, Pandey, Kadian, Al-Dahle, Letman,
+  Mathur, et~al.]{meta2024llama31}
+Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad
+  Al-Dahle, Aiesha Letman, Akhil Mathur, et~al.
+\newblock The {Llama 3} herd of models, 2024.
+
+\bibitem[McCloskey and Cohen(1989)]{mccloskey1989catastrophic}
+Michael McCloskey and Neal~J Cohen.
+\newblock Catastrophic interference in connectionist networks: The sequential
+  learning problem.
+\newblock \emph{Psychology of learning and motivation}, 24:\penalty0 109--165,
+  1989.
+
+\bibitem[Goodfellow et~al.(2013)Goodfellow, Mirza, Xiao, Courville, and
+  Bengio]{goodfellow2013empirical}
+Ian~J Goodfellow, Mehdi Mirza, Da~Xiao, Aaron Courville, and Yoshua Bengio.
+\newblock An empirical investigation of catastrophic forgetting in
+  gradient-based neural networks.
+\newblock \emph{arXiv preprint arXiv:1312.6211}, 2013.
+
+\bibitem[Chawla et~al.(2002)Chawla, Bowyer, Hall, and
+  Kegelmeyer]{chawla2002smote}
+Nitesh~V. Chawla, Kevin~W. Bowyer, Lawrence~O. Hall, and W.~Philip Kegelmeyer.
+\newblock {SMOTE}: Synthetic minority over-sampling technique.
+\newblock \emph{Journal of Artificial Intelligence Research}, 16:\penalty0
+  321--357, 2002.
+
+\bibitem[Tjong Kim~Sang and De~Meulder(2003)]{tjong2003conll}
+Erik~F. Tjong Kim~Sang and Fien De~Meulder.
+\newblock Introduction to the {CoNLL}-2003 shared task: Language-independent
+  named entity recognition.
+\newblock In \emph{Proceedings of the Seventh Conference on Natural Language
+  Learning at {HLT-NAACL} 2003}, pages 142--147, 2003.
+
+\bibitem[Efron and Tibshirani(1994)]{efron1994bootstrap}
+Bradley Efron and Robert Tibshirani.
+\newblock An introduction to the bootstrap.
+\newblock Chapman \& Hall, 1994.
+
+\bibitem[McNemar(1947)]{mcnemar1947note}
+Quinn McNemar.
+\newblock Note on the sampling error of the difference between correlated
+  proportions or percentages.
+\newblock \emph{Psychometrika}, 12\penalty0 (2):\penalty0 153--157, 1947.
+
+\bibitem[Cohen(1960)]{cohen1960kappa}
+Jacob Cohen.
+\newblock A coefficient of agreement for nominal scales.
+\newblock \emph{Educational and Psychological Measurement}, 20\penalty0
+  (1):\penalty0 37--46, 1960.
+
+\bibitem[Paszke et~al.(2019)Paszke, Gross, Massa, Lerer, Bradbury, Chanan,
+  Killeen, Lin, Gimelshein, Antiga, Desmaison, K{\"o}pf, Yang, DeVito, Raison,
+  Tejani, Chilamkurthy, Steiner, Fang, Bai, and Chintala]{paszke2019pytorch}
+Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory
+  Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, Alban
+  Desmaison, Andreas K{\"o}pf, Edward Yang, Zachary DeVito, Martin Raison,
+  Alykhan Tejani, Sreekumar Chilamkurthy, Benoit Steiner, Lu~Fang, Junjie Bai,
+  and Soumith Chintala.
+\newblock {PyTorch}: An imperative style, high-performance deep learning
+  library.
+\newblock In \emph{Advances in Neural Information Processing Systems},
+  volume~32, 2019.
+
+\bibitem[Wolf et~al.(2020)Wolf, Debut, Sanh, Chaumond, Delangue, Moi, Cistac,
+  Rault, Louf, Funtowicz, and Brew]{wolf2020transformers}
+Thomas Wolf, Lysandre Debut, Victor Sanh, Julien Chaumond, Clement Delangue,
+  Anthony Moi, Pierric Cistac, Tim Rault, Remi Louf, Morgan Funtowicz, and
+  Jamie Brew.
+\newblock Transformers: State-of-the-art natural language processing.
+\newblock In \emph{Proceedings of the 2020 Conference on Empirical Methods in
+  Natural Language Processing: System Demonstrations}, pages 38--45.
+  Association for Computational Linguistics, 2020.
+
+\bibitem[{HuggingFace}(2022)]{peft2022}
+{HuggingFace}.
+\newblock {PEFT}: State-of-the-art parameter-efficient fine-tuning.
+\newblock \url{https://github.com/huggingface/peft}, 2022.
+
+\bibitem[Dettmers et~al.(2022)Dettmers, Lewis, Belkada, and
+  Zettlemoyer]{dettmers2022bitsandbytes}
+Tim Dettmers, Mike Lewis, Younes Belkada, and Luke Zettlemoyer.
+\newblock {LLM.int8()}: 8-bit matrix multiplication for transformers at scale,
+  2022.
+
+\bibitem[Hu et~al.(2022)Hu, Shen, Wallis, Allen-Zhu, Li, Wang, Wang, and
+  Chen]{hu2022lora}
+Edward~J. Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean
+  Wang, Lu~Wang, and Weizhu Chen.
+\newblock {LoRA}: Low-rank adaptation of large language models.
+\newblock In \emph{International Conference on Learning Representations}, 2022.
+
+\bibitem[Sharma(1981)]{ayurveda}
+P.~V. Sharma, editor.
+\newblock \emph{Caraka-Sa{\d{m}}hit{\=a}}.
+\newblock Chaukhambha Orientalia, Varanasi, 1981.
+
+\bibitem[Nivre et~al.(2016)Nivre, de~Marneffe, Ginter, Goldberg, Haji{\v{c}},
+  Manning, McDonald, Petrov, Pyysalo, Silveira, Tsarfaty, and
+  Zeman]{nivre2016ud}
+Joakim Nivre, Marie-Catherine de~Marneffe, Filip Ginter, Yoav Goldberg, Jan
+  Haji{\v{c}}, Christopher~D. Manning, Ryan McDonald, Slav Petrov, Sampo
+  Pyysalo, Natalia Silveira, Reut Tsarfaty, and Daniel Zeman.
+\newblock Universal dependencies v1: A multilingual treebank collection.
+\newblock In \emph{Proceedings of the Tenth International Conference on
+  Language Resources and Evaluation ({LREC}'16)}. European Language Resources
+  Association, 2016.
+
+\end{thebibliography}

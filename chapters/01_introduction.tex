@@ -1,0 +1,79 @@
+% ============================================================
+% CHAPTER 1: INTRODUCTION
+% ACL/EMNLP Publication-Grade LaTeX
+% ============================================================
+
+\chapter{Introduction}
+\label{chap:introduction}
+
+% ============================================================
+% 1.1 The Challenge of Accessing Sanskrit Knowledge
+% ============================================================
+\section{The Challenge of Accessing Sanskrit Knowledge}
+\label{sec:challenge}
+
+Sanskrit literature constitutes one of humanity's most profound intellectual and spiritual inheritances. Across domains as diverse as philosophy, medicine, statecraft, mathematics, and the performing arts, Sanskrit texts preserve insights that continue to inform contemporary thought \cite{pollock2006language}. Yet for the vast majority of potential readers — students, researchers, practitioners of Yoga and Ayurveda, and seekers of ancient wisdom — direct access to this knowledge remains severely constrained.
+
+The fundamental barrier is not merely linguistic. Even those who acquire basic proficiency in Sanskrit encounter a second, more intractable obstacle: the sheer scale and complexity of classical texts. The \textit{Mahābhārata} \cite{mahabharata, brockington1998epics} alone comprises approximately 100,000 verses; the \textit{Rāmāyaṇa} \cite{ramayana}, the Purāṇas \cite{purana}, and the śāstras \cite{sastras} add hundreds of thousands more. Within these vast corpora, key entities — persons, locations, concepts, events — are embedded in intricate narratives, often obscured by sandhi, compounding, and the absence of explicit boundaries. A student seeking to trace the development of a philosophical concept or a researcher attempting to map the geographic imagination of ancient India faces an overwhelming manual task.
+
+Machine translation and existing digital tools offer partial relief but introduce their own distortions. As many Sanskrit scholars have observed, translation inevitably simplifies or misrepresents concepts that lack direct equivalents in modern languages \cite{halbfass1991tradition}. The result is a double loss: the original text remains inaccessible, while translations provide only filtered, often impoverished, interpretations.
+
+% ============================================================
+% 1.2 The Role of Named Entity Recognition
+% ============================================================
+\section{The Role of Named Entity Recognition in Sanskrit Scholarship}
+\label{sec:ner_role}
+
+Named Entity Recognition (NER) — the task of identifying and classifying proper names and other entity mentions in text \cite{nadeau2007ner} — offers a powerful means of addressing this challenge. By automatically extracting entities such as persons (\textit{Rāma}, \textit{Kṛṣṇa}, \textit{Arjuna}), locations (\textit{Ayodhyā}, \textit{Kurukṣetra}, \textit{Gaṅgā}), and miscellaneous concepts (\textit{Brahmāstra}, \textit{Vedas}), NER enables scholars to navigate large texts, trace relationships, and build structured knowledge representations.
+
+For Sanskrit specifically, effective NER would allow researchers to:
+\begin{itemize}
+    \item Map the social and political geography of the epics
+    \item Trace the evolution of philosophical concepts across śāstras
+    \item Identify patterns of entity usage that reveal authorial or sectarian perspectives
+    \item Support the development of knowledge graphs for ancient Indian thought
+\end{itemize}
+
+Yet despite these clear scholarly benefits, Sanskrit NER has received remarkably little attention compared to NER for modern languages or even other classical languages such as Latin and Greek. Until recently, no large-scale gold-standard annotated corpus existed, and existing computational approaches remained limited in scope, accuracy, and generalisability\cite{sarkar2023preannotation}.
+
+% ============================================================
+% 1.3 The Research Gap
+% ============================================================
+\section{The Research Gap}
+\label{sec:research_gap_intro}
+
+This thesis identifies and addresses a critical gap in Sanskrit computational linguistics. Existing approaches to Sanskrit NER have largely failed to satisfy three desiderata that are essential for genuine scholarly utility:
+
+\begin{enumerate}
+    \item \textbf{High performance on gold-standard benchmarks}, particularly for minority entity classes (Location and Miscellaneous) that are often most valuable to researchers.
+    \item \textbf{Preservation of core linguistic capabilities}, including segmentation and lemmatisation, so that a single model can support both entity extraction and grammatical analysis
+    \item \textbf{Meaningful generalisation} to unseen classical texts beyond the training domain.
+\end{enumerate}
+
+Current systems typically optimise for one desideratum at the expense of the others. Models trained exclusively on NER data achieve competitive in-domain F1 scores but catastrophically lose their ability to perform basic linguistic tasks. Conversely, models that retain linguistic capability often fail to generalise beyond their narrow training domain. Furthermore, no prior work has systematically addressed the methodological challenges of leveraging the Digital Corpus of Sanskrit (DCS) Sembank \cite{hellwig2010dcs} as a source of silver-standard training data — a resource that this thesis demonstrates is both valuable and non-trivial to exploit correctly.
+
+% ============================================================
+% 1.4 Contribution of This Thesis
+% ============================================================
+\section{Contribution of This Thesis}
+\label{sec:contribution}
+
+This thesis makes three primary contributions:
+
+\textbf{First}, it presents a novel methodology for extracting high-quality silver-standard NER data from the DCS Sembank. \cite{hellwig2025sembank}Through systematic analysis, we identify and correct a critical flaw in previous extraction attempts — the failure to distinguish between descriptor IDs (common nouns) and entity name IDs (proper names) in the Sembank's instance relations. The resulting pipeline yields 12,955 clean examples from 120 diverse classical texts and is documented as a reusable resource for future researchers.\cite{hellwig2025sembank}
+
+\textbf{Second}, it develops and validates a multi-task training strategy that jointly optimises NER performance and linguistic capability preservation. By training on 85\% NER data and 15\% linguistic regularisation data (Segmentation and Lemmatisation tasks), the Final NER model achieves an in-domain micro-F1 of 0.852 while retaining strong performance on linguistic tasks (Segmentation = 85\%, Lemmatisation = 93\%). This represents a deliberate and empirically validated trade-off: a modest 0.8-point reduction in in-domain F1 yields a 16-percentage-point improvement in cross-domain PROPN recall and complete preservation of linguistic functionality.
+
+\textbf{Third}, it provides the first systematic evaluation of Sanskrit NER across three complementary dimensions: in-domain performance on the Mahānāma gold-standard test set, preservation of linguistic capability on held-out DCS data, and cross-domain generalisation to the Pañcatantra \cite{pancatantra_text} (UD\_Sanskrit-UFAL). This three-dimensional framework offers a more comprehensive assessment of scholarly utility than single-metric evaluations.
+
+% ============================================================
+% 1.5 Thesis Structure
+% ============================================================
+\section{Thesis Structure}
+\label{sec:structure}
+
+The remainder of this thesis is organised as follows. Chapter 2 reviews the relevant literature in Sanskrit computational linguistics, NER methodologies, and multi-task learning. Chapter 3 describes the four datasets used in this work — the Mahānāma gold-standard corpus, DCS Sembank silver data, and two Universal Dependencies treebanks — along with the rationale for their selection. Chapter 4 presents the complete methodology, including the novel DCS Sembank extraction pipeline, training strategies, and evaluation framework. Chapter 5 reports empirical results across all three evaluation dimensions. Chapter 6 discusses the implications of these findings for Sanskrit scholarship and identifies directions for future work. Chapter 7 concludes the thesis.
+
+% ============================================================
+% End of Chapter 1
+% ============================================================
